@@ -1,3 +1,0 @@
-Ciao a tutti, io sono un file!
-
-Questa è una prima modifica valida al file.
