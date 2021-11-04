@@ -1,0 +1,12 @@
+# IndInf21 - Sem
+
+<p>
+Repository where are uploaded exercises, labs and utils file
+</p>
+
+
+## Folder structure
+
+- 000_utils/: some shared file and libraries
+- 001_letter_sequence/: FSM that identifies even sequences of a (even empty), followed by one, or more, or no, b, ended by c
+- 002_advanced_traffic_light/: traffic light with day/night cycle and user request to cross

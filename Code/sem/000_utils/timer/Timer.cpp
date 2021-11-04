@@ -3,6 +3,7 @@
 
 Timer::Timer(uint32_t pauseTimeMs)
 {
+    wiringPiSetup();
     _pauseTimeMs = pauseTimeMs;
     _enable = false;
 }
