@@ -68,7 +68,7 @@ int main()
         setLed(led_Blue, onoff);
         onoff = !onoff;
         
-        waitFor(timeoutMs)
+        waitFor(timeoutMs);
     } // main loop
 
     return 0;
