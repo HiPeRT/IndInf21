@@ -1,0 +1,4 @@
+Controller.cpp:3:1:Controller::Controller(ItalianTrafficLight*, BlinkingTrafficLight*)	24	static
+Controller.cpp:9:6:void Controller::start(int)	16	static
+Controller.cpp:26:6:void Controller::day()	16	static
+Controller.cpp:32:6:void Controller::night()	16	static

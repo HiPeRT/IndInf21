@@ -1,0 +1,1 @@
+int next_blink(int current_blink);

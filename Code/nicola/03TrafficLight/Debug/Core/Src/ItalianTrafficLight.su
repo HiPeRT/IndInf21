@@ -1,0 +1,4 @@
+ItalianTrafficLight.cpp:4:1:ItalianTrafficLight::ItalianTrafficLight(LightController*)	16	static
+ItalianTrafficLight.cpp:9:6:void ItalianTrafficLight::setStatus(int)	16	static
+ItalianTrafficLight.cpp:14:5:int ItalianTrafficLight::getStatus()	16	static
+ItalianTrafficLight.cpp:19:6:void ItalianTrafficLight::startCycle()	16	static

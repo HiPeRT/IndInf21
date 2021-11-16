@@ -1,0 +1,1 @@
+int CheckState(int state);

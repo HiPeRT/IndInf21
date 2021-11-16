@@ -1,0 +1,5 @@
+LightController.cpp:3:1:LightController::LightController()	16	static
+LightController.cpp:8:6:void LightController::RedON(int)	16	static
+LightController.cpp:20:6:void LightController::YellowON(int)	16	static
+LightController.cpp:32:6:void LightController::GreenON(int)	16	static
+LightController.cpp:44:6:void LightController::TurnOFF(int)	16	static

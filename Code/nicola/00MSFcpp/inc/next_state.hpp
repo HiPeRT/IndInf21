@@ -1,0 +1,1 @@
+int NextState(int table[4][3], int currentState, char input);
