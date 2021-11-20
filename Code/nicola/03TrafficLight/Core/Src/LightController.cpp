@@ -1,11 +1,8 @@
 #include "../Inc/LightController.hpp"
 
-LightController::LightController()
-{
+LightController::LightController(){}
 
-}
-
-void LightController::RedON(int timerValue)
+void LightController::RedON()
 {
     LedRed = GPIO_PIN_SET;
     LedYellow = GPIO_PIN_RESET;
@@ -13,11 +10,9 @@ void LightController::RedON(int timerValue)
     HAL_GPIO_WritePin(GPIOA, LedRed_Pin, LedRed);
     HAL_GPIO_WritePin(GPIOA, LedYellow_Pin, LedYellow);
     HAL_GPIO_WritePin(GPIOA, LedGreen_Pin, LedGreen);
-    HAL_Delay(timerValue);
-    //WAIT count == timerValue; count++
 }
 
-void LightController::YellowON(int timerValue)
+void LightController::YellowON()
 {
     LedRed = GPIO_PIN_RESET;
     LedYellow = GPIO_PIN_SET;
@@ -25,11 +20,9 @@ void LightController::YellowON(int timerValue)
     HAL_GPIO_WritePin(GPIOA, LedRed_Pin, LedRed);
     HAL_GPIO_WritePin(GPIOA, LedYellow_Pin, LedYellow);
     HAL_GPIO_WritePin(GPIOA, LedGreen_Pin, LedGreen);
-    HAL_Delay(timerValue);
-    //WAIT count == timerValue; count++
 }
 
-void LightController::GreenON(int timerValue)
+void LightController::GreenON()
 {
     LedRed = GPIO_PIN_RESET;
     LedYellow = GPIO_PIN_RESET;
@@ -37,11 +30,9 @@ void LightController::GreenON(int timerValue)
     HAL_GPIO_WritePin(GPIOA, LedRed_Pin, LedRed);
 	HAL_GPIO_WritePin(GPIOA, LedYellow_Pin, LedYellow);
 	HAL_GPIO_WritePin(GPIOA, LedGreen_Pin, LedGreen);
-	HAL_Delay(timerValue);
-    //WAIT count == timerValue; count++
 }
 
-void LightController::TurnOFF(int timerValue)
+void LightController::TurnOFF()
 {
     LedRed = GPIO_PIN_RESET;
     LedYellow = GPIO_PIN_RESET;
@@ -49,6 +40,4 @@ void LightController::TurnOFF(int timerValue)
     HAL_GPIO_WritePin(GPIOA, LedRed_Pin, LedRed);
 	HAL_GPIO_WritePin(GPIOA, LedYellow_Pin, LedYellow);
 	HAL_GPIO_WritePin(GPIOA, LedGreen_Pin, LedGreen);
-	HAL_Delay(timerValue);
-    //WAIT count == timerValue; count++
 }

@@ -1,4 +1,4 @@
-BlinkingTrafficLight.cpp:3:1:BlinkingTrafficLight::BlinkingTrafficLight(LightController*)	16	static
-BlinkingTrafficLight.cpp:8:6:void BlinkingTrafficLight::setStatus(int)	16	static
-BlinkingTrafficLight.cpp:13:5:int BlinkingTrafficLight::getStatus()	16	static
-BlinkingTrafficLight.cpp:18:6:void BlinkingTrafficLight::startCycle()	16	static
+BlinkingTrafficLight.cpp:3:1:BlinkingTrafficLight::BlinkingTrafficLight(LightController*, Timer*)	24	static
+BlinkingTrafficLight.cpp:9:6:void BlinkingTrafficLight::setStatus(int)	16	static
+BlinkingTrafficLight.cpp:14:5:int BlinkingTrafficLight::getStatus()	16	static
+BlinkingTrafficLight.cpp:19:6:void BlinkingTrafficLight::startCycle()	16	static

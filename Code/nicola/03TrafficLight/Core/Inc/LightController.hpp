@@ -2,6 +2,8 @@
 
 #include "main.h"
 
+/* Has the task of setting the Leds  */
+
 class LightController 
 {
     private:
@@ -11,8 +13,8 @@ class LightController
 
     public:
     LightController();
-    void RedON(int timerValue);
-    void YellowON(int timerValue);
-    void GreenON(int timerValue);
-    void TurnOFF(int timerValue);
+    void RedON();
+    void YellowON();
+    void GreenON();
+    void TurnOFF();
 };

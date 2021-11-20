@@ -16,6 +16,8 @@ CPP_SRCS += \
 ../Core/Src/Controller.cpp \
 ../Core/Src/ItalianTrafficLight.cpp \
 ../Core/Src/LightController.cpp \
+../Core/Src/PhaseController.cpp \
+../Core/Src/Timer.cpp \
 ../Core/Src/main.cpp 
 
 C_DEPS += \
@@ -30,6 +32,8 @@ OBJS += \
 ./Core/Src/Controller.o \
 ./Core/Src/ItalianTrafficLight.o \
 ./Core/Src/LightController.o \
+./Core/Src/PhaseController.o \
+./Core/Src/Timer.o \
 ./Core/Src/main.o \
 ./Core/Src/stm32l4xx_hal_msp.o \
 ./Core/Src/stm32l4xx_it.o \
@@ -42,6 +46,8 @@ CPP_DEPS += \
 ./Core/Src/Controller.d \
 ./Core/Src/ItalianTrafficLight.d \
 ./Core/Src/LightController.d \
+./Core/Src/PhaseController.d \
+./Core/Src/Timer.d \
 ./Core/Src/main.d 
 
 

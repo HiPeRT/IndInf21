@@ -58,8 +58,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define BtnChangePhase_Pin GPIO_PIN_4
-#define BtnChangePhase_GPIO_Port GPIOA
 #define LedRed_Pin GPIO_PIN_5
 #define LedRed_GPIO_Port GPIOA
 #define LedYellow_Pin GPIO_PIN_6

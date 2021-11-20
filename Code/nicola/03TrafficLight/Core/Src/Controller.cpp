@@ -6,7 +6,7 @@ Controller::Controller(ItalianTrafficLight *italianTrafficLight, BlinkingTraffic
     blinkingTL = blinkingTrafficLight;
 }
 
-void Controller::start(int phase)
+void Controller::start(bool phase)
 {
     switch (phase)
     {

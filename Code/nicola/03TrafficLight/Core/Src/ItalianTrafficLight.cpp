@@ -1,10 +1,10 @@
 #include "../Inc/ItalianTrafficLight.hpp"
 
-
-ItalianTrafficLight::ItalianTrafficLight(LightController *lightController)
+ItalianTrafficLight::ItalianTrafficLight(LightController *lightController, Timer *timer)
 {
     lightCtrl = lightController;
-};
+    timerPt = timer;
+}
 
 void ItalianTrafficLight::setStatus(int status)
 {
@@ -21,16 +21,28 @@ void ItalianTrafficLight::startCycle()
     switch (currentStatus)
     {
     case RED:
-        lightCtrl->RedON(TIMER1);
-        setStatus(GREEN);        
+        lightCtrl->RedON();
+        if(timerPt->wait(TIMER1))
+		{
+        	setStatus(GREEN);
+        	timerPt->init();
+		}
         break;
     case YELLOW:
-        lightCtrl->YellowON(TIMER2);
-        setStatus(RED);
+        lightCtrl->YellowON();
+        if(timerPt->wait(TIMER2))
+		{
+        	setStatus(RED);
+        	timerPt->init();
+		}
         break;
     case GREEN:
-        lightCtrl->GreenON(TIMER1);
-        setStatus(YELLOW);
+        lightCtrl->GreenON();
+        if(timerPt->wait(TIMER1))
+		{
+        	setStatus(YELLOW);
+        	timerPt->init();
+		}
         break;
     
     default:

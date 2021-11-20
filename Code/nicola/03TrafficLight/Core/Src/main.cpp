@@ -16,18 +16,29 @@
   *
   ******************************************************************************
   */
+
+/**
+  ******************************************************************************
+  * @TODO:
+  *
+  * Fix the problem that once passed to the NIGHT phase you can not
+  * return to the DAY phase without using a breakpoint.
+  *
+  ******************************************************************************
+  */
+
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-
-	#include "main.h"
-	#include "Controller.hpp"
-	#include "ItalianTrafficLight.hpp"
-	#include "BlinkingTrafficLight.hpp"
-	#include "LightController.hpp"
+#include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+	#include "Timer.hpp"
+	#include "LightController.hpp"
+    #include "PhaseController.hpp"
+	#include "Controller.hpp"
+	#include "ItalianTrafficLight.hpp"
+	#include "BlinkingTrafficLight.hpp"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,7 +56,6 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-TIM_HandleTypeDef htim16;
 
 /* USER CODE BEGIN PV */
 
@@ -54,7 +64,6 @@ TIM_HandleTypeDef htim16;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_TIM16_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -81,15 +90,19 @@ int main(void)
 
   /* USER CODE BEGIN Init */
 
-  	bool phase = DAY;
+  	// 'phase' simulates the DAY/NIGHT cycle
+	bool phase = NIGHT;
+	// Init the system
+	Timer timer;
 	LightController lightController;
-	ItalianTrafficLight italianTrafficLight(&lightController);
+	PhaseController phaseController(&phase);
+	ItalianTrafficLight italianTrafficLight(&lightController, &timer);
 	italianTrafficLight.setStatus(RED);
-	BlinkingTrafficLight blinkingTrafficLight(&lightController);
+	BlinkingTrafficLight blinkingTrafficLight(&lightController, &timer);
 	blinkingTrafficLight.setStatus(OFF);
 	Controller controller(&italianTrafficLight, &blinkingTrafficLight);
 
-  /* USER CODE END Init */
+   /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
@@ -102,21 +115,20 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {
-    /* USER CODE END WHILE */
+   {
+     /* USER CODE END WHILE */
 
+	  phaseController.checkButton();
 	  controller.start(phase);
 
-    /* USER CODE BEGIN 3 */
-  }
+     /* USER CODE BEGIN 3 */
+   }
   /* USER CODE END 3 */
 }
 
@@ -177,38 +189,6 @@ void SystemClock_Config(void)
 }
 
 /**
-  * @brief TIM16 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM16_Init(void)
-{
-
-  /* USER CODE BEGIN TIM16_Init 0 */
-
-  /* USER CODE END TIM16_Init 0 */
-
-  /* USER CODE BEGIN TIM16_Init 1 */
-
-  /* USER CODE END TIM16_Init 1 */
-  htim16.Instance = TIM16;
-  htim16.Init.Prescaler = 8000 - 1;
-  htim16.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim16.Init.Period = 65536 - 1;
-  htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim16.Init.RepetitionCounter = 0;
-  htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim16) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM16_Init 2 */
-
-  /* USER CODE END TIM16_Init 2 */
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -224,11 +204,11 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LedRed_Pin|LedYellow_Pin|LedGreen_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : BtnmChangePhase_Pin */
-  GPIO_InitStruct.Pin = BtnChangePhase_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  /*Configure GPIO pin : PC13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(BtnChangePhase_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LedRed_Pin LedYellow_Pin LedGreen_Pin */
   GPIO_InitStruct.Pin = LedRed_Pin|LedYellow_Pin|LedGreen_Pin;

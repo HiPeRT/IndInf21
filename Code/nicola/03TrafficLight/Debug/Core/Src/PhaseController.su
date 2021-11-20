@@ -1,0 +1,3 @@
+PhaseController.cpp:3:1:PhaseController::PhaseController(bool*)	16	static
+PhaseController.cpp:8:6:void PhaseController::checkButton()	16	static
+PhaseController.cpp:13:6:void PhaseController::setPhase()	16	static
