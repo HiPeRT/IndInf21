@@ -15,7 +15,7 @@ __global__ void funzione()
 
   int i =  threadIdx.x + blockIdx.x * blockDim.x;
   // every thread has a unique i
-  if(i >= 6)
+  if(i >= 15)
     return;
 
   arr[i] = i*2;// qualcosa
