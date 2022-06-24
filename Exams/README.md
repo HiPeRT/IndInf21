@@ -1,3 +1,13 @@
+# Scritto 23 Giugno 2022
+
+| Matricola | Crocette | D9 | D10 | Esito | Voto | Note                               |
+|-----------|----------|----|-----|-------|------|------------------------------------|
+| 148534    | 8.5      | 3  | 4   | 15.5  | 15   | Necessario orale                   |
+| 147671    | 8.5      | 1  | 0   | 9.5   | INS  |                                    |
+| 147513    | 5.5      | 1  | 4   | 10.5  | INS  |                                    |
+| 148330    | -        | -  | -   | -     | 29   | Sostenuto in data 22 Dicembre 2021 |
+
+
 # Scritto 21 Febbraio 2022
 
 | Matricola | Crocette | D9 | D10 | Esito | Voto |
