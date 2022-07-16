@@ -1,3 +1,13 @@
+# Scritto 11 Luglio 2022
+
+| Matricola | Crocette | D9 | D10 | Esito | Voto | Note             |
+|-----------|----------|----|-----|-------|------|------------------|
+| 148534    | 12.5     | 5  | 3   | 20.5  | 21   |                  |
+| 146693    | 15.5     | 6  | 3   | 24.5  | 25   |                  |
+| 143126    | 8.5      | 0  | 1   | 9.5   | INS  |                  |
+| 147671    | 11       | 7  | 2   | 20    | 20   |                  |
+| 147513    | 11.5     | 2  | 3   | 16.5  | 17   | Necessario orale |
+
 # Scritto 23 Giugno 2022
 
 | Matricola | Crocette | D9 | D10 | Esito | Voto | Note                               |
